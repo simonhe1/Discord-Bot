@@ -1,7 +1,7 @@
 Project made by Simon He
 Versions:
 
-Node: v10.0.0
+- Node: v10.0.0
 - Npm: 6.12.1
 - Discord.js: 12.2.0
 
