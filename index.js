@@ -37,9 +37,9 @@ let target1StillOn = false;
 
 let targetChannel = '';
 const sendingChannel = '708471731798540350';
-
-const target1ID = '248233443345956865';
-// Simon id: 248233443345956865
+// Change the channel to whatever channel you want the bot to send messages to
+const target1ID = '';
+// Someone's id: 
 const target2ID = '';
 // Whoever's id: 
 
