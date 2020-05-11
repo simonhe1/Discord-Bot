@@ -10,7 +10,13 @@ To run application, you have to set up your own bot and have packages installed.
 
 To do this:
 1. To use discord.js, you'll need to install Node.js. You can do so by going to [the node.js website](https://nodejs.org/en/ "Node js website")
-2. Npm comes packaged with node so you'll need to install discord.js and dotenv by simply typing npm i discord.js dotenv
+2. Npm comes packaged with node but additional packages you will need to install are
+    - discord.js
+    - dotenv
+    - ytdl-core
+    - @discordjs/opus (If you had trouble installing native code like me, run npm install --global --production windows-build-tools)
+    - ffmpeg
+    - fluent-ffmpeg
 3. Make sure you don't have people stealing your API keys
     1. Create a .env file to store your precious keys
     2. Create a .gitignore if you haven't done so and add .gitignore and .env to that so when you commit it to your repo, it won't show.

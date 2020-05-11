@@ -14,10 +14,20 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log('Ready!');
+    console.log('Ready!');
 });
 
-client.on('message', message => {
+client.once('reconnecting', () => {
+    console.log('Reconnecting!');
+});
+
+client.once('disconnect', () => {
+    console.log('Disconnect!');
+});
+
+const queue = new Map();
+
+client.on('message', async message => {
         if (!message.content.startsWith(prefix) || message.author.bot) return;
         const args = message.content.slice(prefix.length).split(/ +/);
         const commandName = args.shift().toLowerCase();
@@ -25,7 +35,11 @@ client.on('message', message => {
         if (!client.commands.has(commandName)) return;
 
         try {
-            client.commands.get(commandName).execute(message,args);
+            if(['play','stop','skip'].includes(commandName)) {
+                client.commands.get(commandName).execute(message,args,queue).catch(err => console.log(err));
+            } else {
+                client.commands.get(commandName).execute(message,args);
+            }
         } catch(err) {
             console.error(error);
             message.reply('there was an error trying to execute that command!');
